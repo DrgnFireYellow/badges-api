@@ -34,9 +34,9 @@ app.get("/languages/go", (req, res) => {
 });
 // USERS
 app.get("/user/", (req, res) => {
-  username = req.query.username;
-  color = req.query.color;
-  usertype = req.query.type;
+  username = encodeURIComponent(req.query.username);
+  color = encodeURIComponent(req.query.color);
+  usertype = encodeURIComponent(req.query.type);
   res.send(
     `http://img.shields.io/badge/-${username}-${color}?logo=${usertype}&style=for-the-badge`
   );
