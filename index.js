@@ -1,6 +1,5 @@
 // IMPORTS
 const express = require("express");
-escape = require("lodash.escape")
 // CONSTANTS
 const app = express();
 const port = 8080;
@@ -35,9 +34,9 @@ app.get("/languages/go", (req, res) => {
 });
 // USERS
 app.get("/user/", (req, res) => {
-  username = escape(req.query.username);
-  color = escape(req.query.color);
-  usertype = escape(req.query.type);
+  username = req.query.username;
+  color = req.query.color;
+  usertype = req.query.type;
   res.send(
     `http://img.shields.io/badge/-${username}-${color}?logo=${usertype}&style=for-the-badge`
   );
